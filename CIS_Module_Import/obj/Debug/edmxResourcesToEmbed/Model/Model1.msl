@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище CISModelContainer" CdmEntityContainer="CISEntities3">
+    <EntitySetMapping Name="Aspect">
+      <EntityTypeMapping TypeName="CISModel.Aspect">
+        <MappingFragment StoreEntitySet="Aspect">
+          <ScalarProperty Name="IdAspect" ColumnName="IdAspect" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="IdSubCriteria" ColumnName="IdSubCriteria" />
+          <ScalarProperty Name="NumberOfPoints" ColumnName="NumberOfPoints" />
+          <ScalarProperty Name="IdTypeAspect" ColumnName="IdTypeAspect" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Criteria">
+      <EntityTypeMapping TypeName="CISModel.Criteria">
+        <MappingFragment StoreEntitySet="Criteria">
+          <ScalarProperty Name="IdCriteria" ColumnName="IdCriteria" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="IdProModule" ColumnName="IdProModule" />
+          <ScalarProperty Name="MaxValue" ColumnName="MaxValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DescriptionOfJudgeAspects">
+      <EntityTypeMapping TypeName="CISModel.DescriptionOfJudgeAspects">
+        <MappingFragment StoreEntitySet="DescriptionOfJudgeAspects">
+          <ScalarProperty Name="IdDescriptionOfJudgeAspects" ColumnName="IdDescriptionOfJudgeAspects" />
+          <ScalarProperty Name="IdAspect" ColumnName="IdAspect" />
+          <ScalarProperty Name="Judg" ColumnName="Judg" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Exam">
+      <EntityTypeMapping TypeName="CISModel.Exam">
+        <MappingFragment StoreEntitySet="Exam">
+          <ScalarProperty Name="IdExam" ColumnName="IdExam" />
+          <ScalarProperty Name="IdProModule" ColumnName="IdProModule" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="IdTeachers" ColumnName="IdTeachers" />
+          <ScalarProperty Name="IdGroup" ColumnName="IdGroup" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Group">
+      <EntityTypeMapping TypeName="CISModel.Group">
+        <MappingFragment StoreEntitySet="Group">
+          <ScalarProperty Name="IdGroup" ColumnName="IdGroup" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="CourseNumber" ColumnName="CourseNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProModule">
+      <EntityTypeMapping TypeName="CISModel.ProModule">
+        <MappingFragment StoreEntitySet="ProModule">
+          <ScalarProperty Name="IdProModule" ColumnName="IdProModule" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="CISModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Speciality">
+      <EntityTypeMapping TypeName="CISModel.Speciality">
+        <MappingFragment StoreEntitySet="Speciality">
+          <ScalarProperty Name="IdSpeciaity" ColumnName="IdSpeciaity" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StatusStudent">
+      <EntityTypeMapping TypeName="CISModel.StatusStudent">
+        <MappingFragment StoreEntitySet="StatusStudent">
+          <ScalarProperty Name="IdStatusStudent" ColumnName="IdStatusStudent" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StatusTeacher">
+      <EntityTypeMapping TypeName="CISModel.StatusTeacher">
+        <MappingFragment StoreEntitySet="StatusTeacher">
+          <ScalarProperty Name="IdStatusTeacher" ColumnName="IdStatusTeacher" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Student">
+      <EntityTypeMapping TypeName="CISModel.Student">
+        <MappingFragment StoreEntitySet="Student">
+          <ScalarProperty Name="IdStudent" ColumnName="IdStudent" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="IdGroup" ColumnName="IdGroup" />
+          <ScalarProperty Name="IdSpeciality" ColumnName="IdSpeciality" />
+          <ScalarProperty Name="IdStatusStudent" ColumnName="IdStatusStudent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentResult">
+      <EntityTypeMapping TypeName="CISModel.StudentResult">
+        <MappingFragment StoreEntitySet="StudentResult">
+          <ScalarProperty Name="IdStudentResult" ColumnName="IdStudentResult" />
+          <ScalarProperty Name="IdStudent" ColumnName="IdStudent" />
+          <ScalarProperty Name="IdAspect" ColumnName="IdAspect" />
+          <ScalarProperty Name="NumberOfPointsForAspects" ColumnName="NumberOfPointsForAspects" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubCriteria">
+      <EntityTypeMapping TypeName="CISModel.SubCriteria">
+        <MappingFragment StoreEntitySet="SubCriteria">
+          <ScalarProperty Name="IdSubCriteria" ColumnName="IdSubCriteria" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="IdCriteria" ColumnName="IdCriteria" />
+          <ScalarProperty Name="TotalScoresForAllAspects" ColumnName="TotalScoresForAllAspects" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="CISModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SystemUser">
+      <EntityTypeMapping TypeName="CISModel.SystemUser">
+        <MappingFragment StoreEntitySet="SystemUser">
+          <ScalarProperty Name="IdSystemUsers" ColumnName="IdSystemUsers" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Teachers">
+      <EntityTypeMapping TypeName="CISModel.Teachers">
+        <MappingFragment StoreEntitySet="Teachers">
+          <ScalarProperty Name="IdTeachers" ColumnName="IdTeachers" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="IdStatusTeachers" ColumnName="IdStatusTeachers" />
+          <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeAspect">
+      <EntityTypeMapping TypeName="CISModel.TypeAspect">
+        <MappingFragment StoreEntitySet="TypeAspect">
+          <ScalarProperty Name="IdTypeAspect" ColumnName="IdTypeAspect" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vedomosti">
+      <EntityTypeMapping TypeName="CISModel.Vedomosti">
+        <MappingFragment StoreEntitySet="Vedomosti">
+          <ScalarProperty Name="IdVedomosti" ColumnName="IdVedomosti" />
+          <ScalarProperty Name="IdExam" ColumnName="IdExam" />
+          <ScalarProperty Name="IdStudent" ColumnName="IdStudent" />
+          <ScalarProperty Name="TheNumberOfPointsForTheExam" ColumnName="TheNumberOfPointsForTheExam" />
+          <ScalarProperty Name="FinalGrade" ColumnName="FinalGrade" />
+          <ScalarProperty Name="RecordingDate" ColumnName="RecordingDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,1201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище CISModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Aspect">
+          <Key>
+            <PropertyRef Name="IdAspect" />
+          </Key>
+          <Property Name="IdAspect" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="IdSubCriteria" Type="int" Nullable="false" />
+          <Property Name="NumberOfPoints" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="IdTypeAspect" Type="int" />
+          <Property Name="Description" Type="nvarchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="Criteria">
+          <Key>
+            <PropertyRef Name="IdCriteria" />
+          </Key>
+          <Property Name="IdCriteria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdProModule" Type="int" Nullable="false" />
+          <Property Name="MaxValue" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DescriptionOfJudgeAspects">
+          <Key>
+            <PropertyRef Name="IdDescriptionOfJudgeAspects" />
+          </Key>
+          <Property Name="IdDescriptionOfJudgeAspects" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdAspect" Type="int" Nullable="false" />
+          <Property Name="Judg" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="Exam">
+          <Key>
+            <PropertyRef Name="IdExam" />
+          </Key>
+          <Property Name="IdExam" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdProModule" Type="int" Nullable="false" />
+          <Property Name="StartDate" Type="date" Nullable="false" />
+          <Property Name="EndDate" Type="date" Nullable="false" />
+          <Property Name="IdTeachers" Type="int" Nullable="false" />
+          <Property Name="IdGroup" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Group">
+          <Key>
+            <PropertyRef Name="IdGroup" />
+          </Key>
+          <Property Name="IdGroup" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="CourseNumber" Type="nvarchar" MaxLength="3" />
+        </EntityType>
+        <EntityType Name="ProModule">
+          <Key>
+            <PropertyRef Name="IdProModule" />
+          </Key>
+          <Property Name="IdProModule" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="IdRole" />
+          </Key>
+          <Property Name="IdRole" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Speciality">
+          <Key>
+            <PropertyRef Name="IdSpeciaity" />
+          </Key>
+          <Property Name="IdSpeciaity" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StatusStudent">
+          <Key>
+            <PropertyRef Name="IdStatusStudent" />
+          </Key>
+          <Property Name="IdStatusStudent" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StatusTeacher">
+          <Key>
+            <PropertyRef Name="IdStatusTeacher" />
+          </Key>
+          <Property Name="IdStatusTeacher" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="IdStudent" />
+          </Key>
+          <Property Name="IdStudent" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="20" />
+          <Property Name="Email" Type="nvarchar" MaxLength="80" />
+          <Property Name="Telephone" Type="nvarchar" MaxLength="22" />
+          <Property Name="IdGroup" Type="int" Nullable="false" />
+          <Property Name="IdSpeciality" Type="int" Nullable="false" />
+          <Property Name="IdStatusStudent" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StudentResult">
+          <Key>
+            <PropertyRef Name="IdStudentResult" />
+          </Key>
+          <Property Name="IdStudentResult" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdStudent" Type="int" Nullable="false" />
+          <Property Name="IdAspect" Type="int" Nullable="false" />
+          <Property Name="NumberOfPointsForAspects" Type="nvarchar" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SubCriteria">
+          <Key>
+            <PropertyRef Name="IdSubCriteria" />
+          </Key>
+          <Property Name="IdSubCriteria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="IdCriteria" Type="int" Nullable="false" />
+          <Property Name="TotalScoresForAllAspects" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="SystemUser">
+          <Key>
+            <PropertyRef Name="IdSystemUsers" />
+          </Key>
+          <Property Name="IdSystemUsers" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Teachers">
+          <Key>
+            <PropertyRef Name="IdTeachers" />
+          </Key>
+          <Property Name="IdTeachers" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="20" />
+          <Property Name="Email" Type="nvarchar" MaxLength="30" />
+          <Property Name="IdStatusTeachers" Type="int" Nullable="false" />
+          <Property Name="IdRole" Type="int" />
+        </EntityType>
+        <EntityType Name="TypeAspect">
+          <Key>
+            <PropertyRef Name="IdTypeAspect" />
+          </Key>
+          <Property Name="IdTypeAspect" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vedomosti">
+          <Key>
+            <PropertyRef Name="IdVedomosti" />
+          </Key>
+          <Property Name="IdVedomosti" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdExam" Type="int" Nullable="false" />
+          <Property Name="IdStudent" Type="int" Nullable="false" />
+          <Property Name="TheNumberOfPointsForTheExam" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="FinalGrade" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="RecordingDate" Type="date" />
+        </EntityType>
+        <Association Name="FK_Aspect_SubCriteria">
+          <End Role="SubCriteria" Type="Self.SubCriteria" Multiplicity="1" />
+          <End Role="Aspect" Type="Self.Aspect" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubCriteria">
+              <PropertyRef Name="IdSubCriteria" />
+            </Principal>
+            <Dependent Role="Aspect">
+              <PropertyRef Name="IdSubCriteria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Aspect_TypeAspect">
+          <End Role="TypeAspect" Type="Self.TypeAspect" Multiplicity="0..1" />
+          <End Role="Aspect" Type="Self.Aspect" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeAspect">
+              <PropertyRef Name="IdTypeAspect" />
+            </Principal>
+            <Dependent Role="Aspect">
+              <PropertyRef Name="IdTypeAspect" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Criteria_ProModule">
+          <End Role="ProModule" Type="Self.ProModule" Multiplicity="1" />
+          <End Role="Criteria" Type="Self.Criteria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProModule">
+              <PropertyRef Name="IdProModule" />
+            </Principal>
+            <Dependent Role="Criteria">
+              <PropertyRef Name="IdProModule" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DescriptionOfRefereeingAspects_Aspect">
+          <End Role="Aspect" Type="Self.Aspect" Multiplicity="1" />
+          <End Role="DescriptionOfJudgeAspects" Type="Self.DescriptionOfJudgeAspects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aspect">
+              <PropertyRef Name="IdAspect" />
+            </Principal>
+            <Dependent Role="DescriptionOfJudgeAspects">
+              <PropertyRef Name="IdAspect" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Exam_Group">
+          <End Role="Group" Type="Self.Group" Multiplicity="1" />
+          <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="IdGroup" />
+            </Principal>
+            <Dependent Role="Exam">
+              <PropertyRef Name="IdGroup" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Exam_ProModule">
+          <End Role="ProModule" Type="Self.ProModule" Multiplicity="1" />
+          <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProModule">
+              <PropertyRef Name="IdProModule" />
+            </Principal>
+            <Dependent Role="Exam">
+              <PropertyRef Name="IdProModule" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Exam_Teachers">
+          <End Role="Teachers" Type="Self.Teachers" Multiplicity="1" />
+          <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teachers">
+              <PropertyRef Name="IdTeachers" />
+            </Principal>
+            <Dependent Role="Exam">
+              <PropertyRef Name="IdTeachers" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Group">
+          <End Role="Group" Type="Self.Group" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="IdGroup" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="IdGroup" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Speciality">
+          <End Role="Speciality" Type="Self.Speciality" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Speciality">
+              <PropertyRef Name="IdSpeciaity" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="IdSpeciality" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_StatusStudent">
+          <End Role="StatusStudent" Type="Self.StatusStudent" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusStudent">
+              <PropertyRef Name="IdStatusStudent" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="IdStatusStudent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentResult_Aspect">
+          <End Role="Aspect" Type="Self.Aspect" Multiplicity="1" />
+          <End Role="StudentResult" Type="Self.StudentResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aspect">
+              <PropertyRef Name="IdAspect" />
+            </Principal>
+            <Dependent Role="StudentResult">
+              <PropertyRef Name="IdAspect" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentResult_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="StudentResult" Type="Self.StudentResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="IdStudent" />
+            </Principal>
+            <Dependent Role="StudentResult">
+              <PropertyRef Name="IdStudent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubCriteria_Criteria">
+          <End Role="Criteria" Type="Self.Criteria" Multiplicity="1" />
+          <End Role="SubCriteria" Type="Self.SubCriteria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Criteria">
+              <PropertyRef Name="IdCriteria" />
+            </Principal>
+            <Dependent Role="SubCriteria">
+              <PropertyRef Name="IdCriteria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SystemUser_Teachers">
+          <End Role="Teachers" Type="Self.Teachers" Multiplicity="1" />
+          <End Role="SystemUser" Type="Self.SystemUser" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Teachers">
+              <PropertyRef Name="IdTeachers" />
+            </Principal>
+            <Dependent Role="SystemUser">
+              <PropertyRef Name="IdSystemUsers" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Teachers_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="Teachers" Type="Self.Teachers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="IdRole" />
+            </Principal>
+            <Dependent Role="Teachers">
+              <PropertyRef Name="IdRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Teachers_StatusTeacher1">
+          <End Role="StatusTeacher" Type="Self.StatusTeacher" Multiplicity="1" />
+          <End Role="Teachers" Type="Self.Teachers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusTeacher">
+              <PropertyRef Name="IdStatusTeacher" />
+            </Principal>
+            <Dependent Role="Teachers">
+              <PropertyRef Name="IdStatusTeachers" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vedomosti_Exam">
+          <End Role="Exam" Type="Self.Exam" Multiplicity="1" />
+          <End Role="Vedomosti" Type="Self.Vedomosti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Exam">
+              <PropertyRef Name="IdExam" />
+            </Principal>
+            <Dependent Role="Vedomosti">
+              <PropertyRef Name="IdExam" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vedomosti_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Vedomosti" Type="Self.Vedomosti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="IdStudent" />
+            </Principal>
+            <Dependent Role="Vedomosti">
+              <PropertyRef Name="IdStudent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище CISModelContainer">
+          <EntitySet Name="Aspect" EntityType="Self.Aspect" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Criteria" EntityType="Self.Criteria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DescriptionOfJudgeAspects" EntityType="Self.DescriptionOfJudgeAspects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Exam" EntityType="Self.Exam" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Group" EntityType="Self.Group" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProModule" EntityType="Self.ProModule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Speciality" EntityType="Self.Speciality" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StatusStudent" EntityType="Self.StatusStudent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StatusTeacher" EntityType="Self.StatusTeacher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentResult" EntityType="Self.StudentResult" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubCriteria" EntityType="Self.SubCriteria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SystemUser" EntityType="Self.SystemUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Teachers" EntityType="Self.Teachers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeAspect" EntityType="Self.TypeAspect" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vedomosti" EntityType="Self.Vedomosti" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Aspect_SubCriteria" Association="Self.FK_Aspect_SubCriteria">
+            <End Role="SubCriteria" EntitySet="SubCriteria" />
+            <End Role="Aspect" EntitySet="Aspect" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Aspect_TypeAspect" Association="Self.FK_Aspect_TypeAspect">
+            <End Role="TypeAspect" EntitySet="TypeAspect" />
+            <End Role="Aspect" EntitySet="Aspect" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Criteria_ProModule" Association="Self.FK_Criteria_ProModule">
+            <End Role="ProModule" EntitySet="ProModule" />
+            <End Role="Criteria" EntitySet="Criteria" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DescriptionOfRefereeingAspects_Aspect" Association="Self.FK_DescriptionOfRefereeingAspects_Aspect">
+            <End Role="Aspect" EntitySet="Aspect" />
+            <End Role="DescriptionOfJudgeAspects" EntitySet="DescriptionOfJudgeAspects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Exam_Group" Association="Self.FK_Exam_Group">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="Exam" EntitySet="Exam" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Exam_ProModule" Association="Self.FK_Exam_ProModule">
+            <End Role="ProModule" EntitySet="ProModule" />
+            <End Role="Exam" EntitySet="Exam" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Exam_Teachers" Association="Self.FK_Exam_Teachers">
+            <End Role="Teachers" EntitySet="Teachers" />
+            <End Role="Exam" EntitySet="Exam" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Group" Association="Self.FK_Student_Group">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Speciality" Association="Self.FK_Student_Speciality">
+            <End Role="Speciality" EntitySet="Speciality" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_StatusStudent" Association="Self.FK_Student_StatusStudent">
+            <End Role="StatusStudent" EntitySet="StatusStudent" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentResult_Aspect" Association="Self.FK_StudentResult_Aspect">
+            <End Role="Aspect" EntitySet="Aspect" />
+            <End Role="StudentResult" EntitySet="StudentResult" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentResult_Student" Association="Self.FK_StudentResult_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="StudentResult" EntitySet="StudentResult" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubCriteria_Criteria" Association="Self.FK_SubCriteria_Criteria">
+            <End Role="Criteria" EntitySet="Criteria" />
+            <End Role="SubCriteria" EntitySet="SubCriteria" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SystemUser_Teachers" Association="Self.FK_SystemUser_Teachers">
+            <End Role="Teachers" EntitySet="Teachers" />
+            <End Role="SystemUser" EntitySet="SystemUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Teachers_Role" Association="Self.FK_Teachers_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Teachers" EntitySet="Teachers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Teachers_StatusTeacher1" Association="Self.FK_Teachers_StatusTeacher1">
+            <End Role="StatusTeacher" EntitySet="StatusTeacher" />
+            <End Role="Teachers" EntitySet="Teachers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vedomosti_Exam" Association="Self.FK_Vedomosti_Exam">
+            <End Role="Exam" EntitySet="Exam" />
+            <End Role="Vedomosti" EntitySet="Vedomosti" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vedomosti_Student" Association="Self.FK_Vedomosti_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Vedomosti" EntitySet="Vedomosti" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CISModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Aspect">
+          <Key>
+            <PropertyRef Name="IdAspect" />
+          </Key>
+          <Property Name="IdAspect" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdSubCriteria" Type="Int32" Nullable="false" />
+          <Property Name="NumberOfPoints" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdTypeAspect" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SubCriteria" Relationship="Self.FK_Aspect_SubCriteria" FromRole="Aspect" ToRole="SubCriteria" />
+          <NavigationProperty Name="TypeAspect" Relationship="Self.FK_Aspect_TypeAspect" FromRole="Aspect" ToRole="TypeAspect" />
+          <NavigationProperty Name="DescriptionOfJudgeAspects" Relationship="Self.FK_DescriptionOfRefereeingAspects_Aspect" FromRole="Aspect" ToRole="DescriptionOfJudgeAspects" />
+          <NavigationProperty Name="StudentResult" Relationship="Self.FK_StudentResult_Aspect" FromRole="Aspect" ToRole="StudentResult" />
+        </EntityType>
+        <EntityType Name="Criteria">
+          <Key>
+            <PropertyRef Name="IdCriteria" />
+          </Key>
+          <Property Name="IdCriteria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdProModule" Type="Int32" Nullable="false" />
+          <Property Name="MaxValue" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ProModule" Relationship="Self.FK_Criteria_ProModule" FromRole="Criteria" ToRole="ProModule" />
+          <NavigationProperty Name="SubCriteria" Relationship="Self.FK_SubCriteria_Criteria" FromRole="Criteria" ToRole="SubCriteria" />
+        </EntityType>
+        <EntityType Name="DescriptionOfJudgeAspects">
+          <Key>
+            <PropertyRef Name="IdDescriptionOfJudgeAspects" />
+          </Key>
+          <Property Name="IdDescriptionOfJudgeAspects" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdAspect" Type="Int32" Nullable="false" />
+          <Property Name="Judg" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Aspect" Relationship="Self.FK_DescriptionOfRefereeingAspects_Aspect" FromRole="DescriptionOfJudgeAspects" ToRole="Aspect" />
+        </EntityType>
+        <EntityType Name="Exam">
+          <Key>
+            <PropertyRef Name="IdExam" />
+          </Key>
+          <Property Name="IdExam" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdProModule" Type="Int32" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IdTeachers" Type="Int32" Nullable="false" />
+          <Property Name="IdGroup" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Group" Relationship="Self.FK_Exam_Group" FromRole="Exam" ToRole="Group" />
+          <NavigationProperty Name="ProModule" Relationship="Self.FK_Exam_ProModule" FromRole="Exam" ToRole="ProModule" />
+          <NavigationProperty Name="Teachers" Relationship="Self.FK_Exam_Teachers" FromRole="Exam" ToRole="Teachers" />
+          <NavigationProperty Name="Vedomosti" Relationship="Self.FK_Vedomosti_Exam" FromRole="Exam" ToRole="Vedomosti" />
+        </EntityType>
+        <EntityType Name="Group">
+          <Key>
+            <PropertyRef Name="IdGroup" />
+          </Key>
+          <Property Name="IdGroup" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CourseNumber" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Exam" Relationship="Self.FK_Exam_Group" FromRole="Group" ToRole="Exam" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Student_Group" FromRole="Group" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="ProModule">
+          <Key>
+            <PropertyRef Name="IdProModule" />
+          </Key>
+          <Property Name="IdProModule" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Criteria" Relationship="Self.FK_Criteria_ProModule" FromRole="ProModule" ToRole="Criteria" />
+          <NavigationProperty Name="Exam" Relationship="Self.FK_Exam_ProModule" FromRole="ProModule" ToRole="Exam" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="IdRole" />
+          </Key>
+          <Property Name="IdRole" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Teachers" Relationship="Self.FK_Teachers_Role" FromRole="Role" ToRole="Teachers" />
+        </EntityType>
+        <EntityType Name="Speciality">
+          <Key>
+            <PropertyRef Name="IdSpeciaity" />
+          </Key>
+          <Property Name="IdSpeciaity" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Student_Speciality" FromRole="Speciality" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="StatusStudent">
+          <Key>
+            <PropertyRef Name="IdStatusStudent" />
+          </Key>
+          <Property Name="IdStatusStudent" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Student_StatusStudent" FromRole="StatusStudent" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="StatusTeacher">
+          <Key>
+            <PropertyRef Name="IdStatusTeacher" />
+          </Key>
+          <Property Name="IdStatusTeacher" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Teachers" Relationship="Self.FK_Teachers_StatusTeacher1" FromRole="StatusTeacher" ToRole="Teachers" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="IdStudent" />
+          </Key>
+          <Property Name="IdStudent" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="Telephone" Type="String" MaxLength="22" FixedLength="false" Unicode="true" />
+          <Property Name="IdGroup" Type="Int32" Nullable="false" />
+          <Property Name="IdSpeciality" Type="Int32" Nullable="false" />
+          <Property Name="IdStatusStudent" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Group" Relationship="Self.FK_Student_Group" FromRole="Student" ToRole="Group" />
+          <NavigationProperty Name="Speciality" Relationship="Self.FK_Student_Speciality" FromRole="Student" ToRole="Speciality" />
+          <NavigationProperty Name="StatusStudent" Relationship="Self.FK_Student_StatusStudent" FromRole="Student" ToRole="StatusStudent" />
+          <NavigationProperty Name="StudentResult" Relationship="Self.FK_StudentResult_Student" FromRole="Student" ToRole="StudentResult" />
+          <NavigationProperty Name="Vedomosti" Relationship="Self.FK_Vedomosti_Student" FromRole="Student" ToRole="Vedomosti" />
+        </EntityType>
+        <EntityType Name="StudentResult">
+          <Key>
+            <PropertyRef Name="IdStudentResult" />
+          </Key>
+          <Property Name="IdStudentResult" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdStudent" Type="Int32" Nullable="false" />
+          <Property Name="IdAspect" Type="Int32" Nullable="false" />
+          <Property Name="NumberOfPointsForAspects" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Aspect" Relationship="Self.FK_StudentResult_Aspect" FromRole="StudentResult" ToRole="Aspect" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_StudentResult_Student" FromRole="StudentResult" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="SubCriteria">
+          <Key>
+            <PropertyRef Name="IdSubCriteria" />
+          </Key>
+          <Property Name="IdSubCriteria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdCriteria" Type="Int32" Nullable="false" />
+          <Property Name="TotalScoresForAllAspects" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Aspect" Relationship="Self.FK_Aspect_SubCriteria" FromRole="SubCriteria" ToRole="Aspect" />
+          <NavigationProperty Name="Criteria" Relationship="Self.FK_SubCriteria_Criteria" FromRole="SubCriteria" ToRole="Criteria" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="SystemUser">
+          <Key>
+            <PropertyRef Name="IdSystemUsers" />
+          </Key>
+          <Property Name="IdSystemUsers" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Teachers" Relationship="Self.FK_SystemUser_Teachers" FromRole="SystemUser" ToRole="Teachers" />
+        </EntityType>
+        <EntityType Name="Teachers">
+          <Key>
+            <PropertyRef Name="IdTeachers" />
+          </Key>
+          <Property Name="IdTeachers" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="IdStatusTeachers" Type="Int32" Nullable="false" />
+          <Property Name="IdRole" Type="Int32" />
+          <NavigationProperty Name="Exam" Relationship="Self.FK_Exam_Teachers" FromRole="Teachers" ToRole="Exam" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_Teachers_Role" FromRole="Teachers" ToRole="Role" />
+          <NavigationProperty Name="StatusTeacher" Relationship="Self.FK_Teachers_StatusTeacher1" FromRole="Teachers" ToRole="StatusTeacher" />
+          <NavigationProperty Name="SystemUser" Relationship="Self.FK_SystemUser_Teachers" FromRole="Teachers" ToRole="SystemUser" />
+        </EntityType>
+        <EntityType Name="TypeAspect">
+          <Key>
+            <PropertyRef Name="IdTypeAspect" />
+          </Key>
+          <Property Name="IdTypeAspect" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Aspect" Relationship="Self.FK_Aspect_TypeAspect" FromRole="TypeAspect" ToRole="Aspect" />
+        </EntityType>
+        <EntityType Name="Vedomosti">
+          <Key>
+            <PropertyRef Name="IdVedomosti" />
+          </Key>
+          <Property Name="IdVedomosti" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdExam" Type="Int32" Nullable="false" />
+          <Property Name="IdStudent" Type="Int32" Nullable="false" />
+          <Property Name="TheNumberOfPointsForTheExam" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FinalGrade" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RecordingDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Exam" Relationship="Self.FK_Vedomosti_Exam" FromRole="Vedomosti" ToRole="Exam" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Vedomosti_Student" FromRole="Vedomosti" ToRole="Student" />
+        </EntityType>
+        <Association Name="FK_Aspect_SubCriteria">
+          <End Role="SubCriteria" Type="Self.SubCriteria" Multiplicity="1" />
+          <End Role="Aspect" Type="Self.Aspect" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubCriteria">
+              <PropertyRef Name="IdSubCriteria" />
+            </Principal>
+            <Dependent Role="Aspect">
+              <PropertyRef Name="IdSubCriteria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Aspect_TypeAspect">
+          <End Role="TypeAspect" Type="Self.TypeAspect" Multiplicity="0..1" />
+          <End Role="Aspect" Type="Self.Aspect" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeAspect">
+              <PropertyRef Name="IdTypeAspect" />
+            </Principal>
+            <Dependent Role="Aspect">
+              <PropertyRef Name="IdTypeAspect" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DescriptionOfRefereeingAspects_Aspect">
+          <End Role="Aspect" Type="Self.Aspect" Multiplicity="1" />
+          <End Role="DescriptionOfJudgeAspects" Type="Self.DescriptionOfJudgeAspects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aspect">
+              <PropertyRef Name="IdAspect" />
+            </Principal>
+            <Dependent Role="DescriptionOfJudgeAspects">
+              <PropertyRef Name="IdAspect" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentResult_Aspect">
+          <End Role="Aspect" Type="Self.Aspect" Multiplicity="1" />
+          <End Role="StudentResult" Type="Self.StudentResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aspect">
+              <PropertyRef Name="IdAspect" />
+            </Principal>
+            <Dependent Role="StudentResult">
+              <PropertyRef Name="IdAspect" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Criteria_ProModule">
+          <End Role="ProModule" Type="Self.ProModule" Multiplicity="1" />
+          <End Role="Criteria" Type="Self.Criteria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProModule">
+              <PropertyRef Name="IdProModule" />
+            </Principal>
+            <Dependent Role="Criteria">
+              <PropertyRef Name="IdProModule" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubCriteria_Criteria">
+          <End Role="Criteria" Type="Self.Criteria" Multiplicity="1" />
+          <End Role="SubCriteria" Type="Self.SubCriteria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Criteria">
+              <PropertyRef Name="IdCriteria" />
+            </Principal>
+            <Dependent Role="SubCriteria">
+              <PropertyRef Name="IdCriteria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Exam_Group">
+          <End Role="Group" Type="Self.Group" Multiplicity="1" />
+          <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="IdGroup" />
+            </Principal>
+            <Dependent Role="Exam">
+              <PropertyRef Name="IdGroup" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Exam_ProModule">
+          <End Role="ProModule" Type="Self.ProModule" Multiplicity="1" />
+          <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProModule">
+              <PropertyRef Name="IdProModule" />
+            </Principal>
+            <Dependent Role="Exam">
+              <PropertyRef Name="IdProModule" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Exam_Teachers">
+          <End Role="Teachers" Type="Self.Teachers" Multiplicity="1" />
+          <End Role="Exam" Type="Self.Exam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teachers">
+              <PropertyRef Name="IdTeachers" />
+            </Principal>
+            <Dependent Role="Exam">
+              <PropertyRef Name="IdTeachers" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vedomosti_Exam">
+          <End Role="Exam" Type="Self.Exam" Multiplicity="1" />
+          <End Role="Vedomosti" Type="Self.Vedomosti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Exam">
+              <PropertyRef Name="IdExam" />
+            </Principal>
+            <Dependent Role="Vedomosti">
+              <PropertyRef Name="IdExam" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Group">
+          <End Role="Group" Type="Self.Group" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="IdGroup" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="IdGroup" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Teachers_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="Teachers" Type="Self.Teachers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="IdRole" />
+            </Principal>
+            <Dependent Role="Teachers">
+              <PropertyRef Name="IdRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Speciality">
+          <End Role="Speciality" Type="Self.Speciality" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Speciality">
+              <PropertyRef Name="IdSpeciaity" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="IdSpeciality" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_StatusStudent">
+          <End Role="StatusStudent" Type="Self.StatusStudent" Multiplicity="1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusStudent">
+              <PropertyRef Name="IdStatusStudent" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="IdStatusStudent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Teachers_StatusTeacher1">
+          <End Role="StatusTeacher" Type="Self.StatusTeacher" Multiplicity="1" />
+          <End Role="Teachers" Type="Self.Teachers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusTeacher">
+              <PropertyRef Name="IdStatusTeacher" />
+            </Principal>
+            <Dependent Role="Teachers">
+              <PropertyRef Name="IdStatusTeachers" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentResult_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="StudentResult" Type="Self.StudentResult" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="IdStudent" />
+            </Principal>
+            <Dependent Role="StudentResult">
+              <PropertyRef Name="IdStudent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vedomosti_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Vedomosti" Type="Self.Vedomosti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="IdStudent" />
+            </Principal>
+            <Dependent Role="Vedomosti">
+              <PropertyRef Name="IdStudent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SystemUser_Teachers">
+          <End Role="Teachers" Type="Self.Teachers" Multiplicity="1" />
+          <End Role="SystemUser" Type="Self.SystemUser" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Teachers">
+              <PropertyRef Name="IdTeachers" />
+            </Principal>
+            <Dependent Role="SystemUser">
+              <PropertyRef Name="IdSystemUsers" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CISEntities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Aspect" EntityType="Self.Aspect" />
+          <EntitySet Name="Criteria" EntityType="Self.Criteria" />
+          <EntitySet Name="DescriptionOfJudgeAspects" EntityType="Self.DescriptionOfJudgeAspects" />
+          <EntitySet Name="Exam" EntityType="Self.Exam" />
+          <EntitySet Name="Group" EntityType="Self.Group" />
+          <EntitySet Name="ProModule" EntityType="Self.ProModule" />
+          <EntitySet Name="Role" EntityType="Self.Role" />
+          <EntitySet Name="Speciality" EntityType="Self.Speciality" />
+          <EntitySet Name="StatusStudent" EntityType="Self.StatusStudent" />
+          <EntitySet Name="StatusTeacher" EntityType="Self.StatusTeacher" />
+          <EntitySet Name="Student" EntityType="Self.Student" />
+          <EntitySet Name="StudentResult" EntityType="Self.StudentResult" />
+          <EntitySet Name="SubCriteria" EntityType="Self.SubCriteria" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="SystemUser" EntityType="Self.SystemUser" />
+          <EntitySet Name="Teachers" EntityType="Self.Teachers" />
+          <EntitySet Name="TypeAspect" EntityType="Self.TypeAspect" />
+          <EntitySet Name="Vedomosti" EntityType="Self.Vedomosti" />
+          <AssociationSet Name="FK_Aspect_SubCriteria" Association="Self.FK_Aspect_SubCriteria">
+            <End Role="SubCriteria" EntitySet="SubCriteria" />
+            <End Role="Aspect" EntitySet="Aspect" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Aspect_TypeAspect" Association="Self.FK_Aspect_TypeAspect">
+            <End Role="TypeAspect" EntitySet="TypeAspect" />
+            <End Role="Aspect" EntitySet="Aspect" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DescriptionOfRefereeingAspects_Aspect" Association="Self.FK_DescriptionOfRefereeingAspects_Aspect">
+            <End Role="Aspect" EntitySet="Aspect" />
+            <End Role="DescriptionOfJudgeAspects" EntitySet="DescriptionOfJudgeAspects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentResult_Aspect" Association="Self.FK_StudentResult_Aspect">
+            <End Role="Aspect" EntitySet="Aspect" />
+            <End Role="StudentResult" EntitySet="StudentResult" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Criteria_ProModule" Association="Self.FK_Criteria_ProModule">
+            <End Role="ProModule" EntitySet="ProModule" />
+            <End Role="Criteria" EntitySet="Criteria" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubCriteria_Criteria" Association="Self.FK_SubCriteria_Criteria">
+            <End Role="Criteria" EntitySet="Criteria" />
+            <End Role="SubCriteria" EntitySet="SubCriteria" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Exam_Group" Association="Self.FK_Exam_Group">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="Exam" EntitySet="Exam" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Exam_ProModule" Association="Self.FK_Exam_ProModule">
+            <End Role="ProModule" EntitySet="ProModule" />
+            <End Role="Exam" EntitySet="Exam" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Exam_Teachers" Association="Self.FK_Exam_Teachers">
+            <End Role="Teachers" EntitySet="Teachers" />
+            <End Role="Exam" EntitySet="Exam" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vedomosti_Exam" Association="Self.FK_Vedomosti_Exam">
+            <End Role="Exam" EntitySet="Exam" />
+            <End Role="Vedomosti" EntitySet="Vedomosti" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Group" Association="Self.FK_Student_Group">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Teachers_Role" Association="Self.FK_Teachers_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Teachers" EntitySet="Teachers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Speciality" Association="Self.FK_Student_Speciality">
+            <End Role="Speciality" EntitySet="Speciality" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_StatusStudent" Association="Self.FK_Student_StatusStudent">
+            <End Role="StatusStudent" EntitySet="StatusStudent" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Teachers_StatusTeacher1" Association="Self.FK_Teachers_StatusTeacher1">
+            <End Role="StatusTeacher" EntitySet="StatusTeacher" />
+            <End Role="Teachers" EntitySet="Teachers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentResult_Student" Association="Self.FK_StudentResult_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="StudentResult" EntitySet="StudentResult" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vedomosti_Student" Association="Self.FK_Vedomosti_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Vedomosti" EntitySet="Vedomosti" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SystemUser_Teachers" Association="Self.FK_SystemUser_Teachers">
+            <End Role="Teachers" EntitySet="Teachers" />
+            <End Role="SystemUser" EntitySet="SystemUser" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище CISModelContainer" CdmEntityContainer="CISEntities3">
+          <EntitySetMapping Name="Aspect">
+            <EntityTypeMapping TypeName="CISModel.Aspect">
+              <MappingFragment StoreEntitySet="Aspect">
+                <ScalarProperty Name="IdAspect" ColumnName="IdAspect" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="IdSubCriteria" ColumnName="IdSubCriteria" />
+                <ScalarProperty Name="NumberOfPoints" ColumnName="NumberOfPoints" />
+                <ScalarProperty Name="IdTypeAspect" ColumnName="IdTypeAspect" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Criteria">
+            <EntityTypeMapping TypeName="CISModel.Criteria">
+              <MappingFragment StoreEntitySet="Criteria">
+                <ScalarProperty Name="IdCriteria" ColumnName="IdCriteria" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="IdProModule" ColumnName="IdProModule" />
+                <ScalarProperty Name="MaxValue" ColumnName="MaxValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DescriptionOfJudgeAspects">
+            <EntityTypeMapping TypeName="CISModel.DescriptionOfJudgeAspects">
+              <MappingFragment StoreEntitySet="DescriptionOfJudgeAspects">
+                <ScalarProperty Name="IdDescriptionOfJudgeAspects" ColumnName="IdDescriptionOfJudgeAspects" />
+                <ScalarProperty Name="IdAspect" ColumnName="IdAspect" />
+                <ScalarProperty Name="Judg" ColumnName="Judg" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Exam">
+            <EntityTypeMapping TypeName="CISModel.Exam">
+              <MappingFragment StoreEntitySet="Exam">
+                <ScalarProperty Name="IdExam" ColumnName="IdExam" />
+                <ScalarProperty Name="IdProModule" ColumnName="IdProModule" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="IdTeachers" ColumnName="IdTeachers" />
+                <ScalarProperty Name="IdGroup" ColumnName="IdGroup" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Group">
+            <EntityTypeMapping TypeName="CISModel.Group">
+              <MappingFragment StoreEntitySet="Group">
+                <ScalarProperty Name="IdGroup" ColumnName="IdGroup" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="CourseNumber" ColumnName="CourseNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProModule">
+            <EntityTypeMapping TypeName="CISModel.ProModule">
+              <MappingFragment StoreEntitySet="ProModule">
+                <ScalarProperty Name="IdProModule" ColumnName="IdProModule" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="CISModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Speciality">
+            <EntityTypeMapping TypeName="CISModel.Speciality">
+              <MappingFragment StoreEntitySet="Speciality">
+                <ScalarProperty Name="IdSpeciaity" ColumnName="IdSpeciaity" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StatusStudent">
+            <EntityTypeMapping TypeName="CISModel.StatusStudent">
+              <MappingFragment StoreEntitySet="StatusStudent">
+                <ScalarProperty Name="IdStatusStudent" ColumnName="IdStatusStudent" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StatusTeacher">
+            <EntityTypeMapping TypeName="CISModel.StatusTeacher">
+              <MappingFragment StoreEntitySet="StatusTeacher">
+                <ScalarProperty Name="IdStatusTeacher" ColumnName="IdStatusTeacher" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Student">
+            <EntityTypeMapping TypeName="CISModel.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="IdStudent" ColumnName="IdStudent" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="IdGroup" ColumnName="IdGroup" />
+                <ScalarProperty Name="IdSpeciality" ColumnName="IdSpeciality" />
+                <ScalarProperty Name="IdStatusStudent" ColumnName="IdStatusStudent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentResult">
+            <EntityTypeMapping TypeName="CISModel.StudentResult">
+              <MappingFragment StoreEntitySet="StudentResult">
+                <ScalarProperty Name="IdStudentResult" ColumnName="IdStudentResult" />
+                <ScalarProperty Name="IdStudent" ColumnName="IdStudent" />
+                <ScalarProperty Name="IdAspect" ColumnName="IdAspect" />
+                <ScalarProperty Name="NumberOfPointsForAspects" ColumnName="NumberOfPointsForAspects" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubCriteria">
+            <EntityTypeMapping TypeName="CISModel.SubCriteria">
+              <MappingFragment StoreEntitySet="SubCriteria">
+                <ScalarProperty Name="IdSubCriteria" ColumnName="IdSubCriteria" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="IdCriteria" ColumnName="IdCriteria" />
+                <ScalarProperty Name="TotalScoresForAllAspects" ColumnName="TotalScoresForAllAspects" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="CISModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SystemUser">
+            <EntityTypeMapping TypeName="CISModel.SystemUser">
+              <MappingFragment StoreEntitySet="SystemUser">
+                <ScalarProperty Name="IdSystemUsers" ColumnName="IdSystemUsers" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Teachers">
+            <EntityTypeMapping TypeName="CISModel.Teachers">
+              <MappingFragment StoreEntitySet="Teachers">
+                <ScalarProperty Name="IdTeachers" ColumnName="IdTeachers" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="IdStatusTeachers" ColumnName="IdStatusTeachers" />
+                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeAspect">
+            <EntityTypeMapping TypeName="CISModel.TypeAspect">
+              <MappingFragment StoreEntitySet="TypeAspect">
+                <ScalarProperty Name="IdTypeAspect" ColumnName="IdTypeAspect" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vedomosti">
+            <EntityTypeMapping TypeName="CISModel.Vedomosti">
+              <MappingFragment StoreEntitySet="Vedomosti">
+                <ScalarProperty Name="IdVedomosti" ColumnName="IdVedomosti" />
+                <ScalarProperty Name="IdExam" ColumnName="IdExam" />
+                <ScalarProperty Name="IdStudent" ColumnName="IdStudent" />
+                <ScalarProperty Name="TheNumberOfPointsForTheExam" ColumnName="TheNumberOfPointsForTheExam" />
+                <ScalarProperty Name="FinalGrade" ColumnName="FinalGrade" />
+                <ScalarProperty Name="RecordingDate" ColumnName="RecordingDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

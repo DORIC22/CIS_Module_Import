@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="62c72e1ffea74195a92c97d473fba381" Name="Diagram1">
+        <EntityTypeShape EntityType="CISModel.Aspect" Width="1.5" PointX="9" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CISModel.Criteria" Width="1.5" PointX="4.5" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CISModel.DescriptionOfJudgeAspects" Width="1.5" PointX="11.25" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="CISModel.Exam" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CISModel.Group" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="CISModel.ProModule" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CISModel.Role" Width="1.5" PointX="1.5" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CISModel.Speciality" Width="1.5" PointX="3.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="CISModel.StatusStudent" Width="1.5" PointX="3.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CISModel.StatusTeacher" Width="1.5" PointX="1.5" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CISModel.Student" Width="1.5" PointX="6" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CISModel.StudentResult" Width="1.5" PointX="11.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CISModel.SubCriteria" Width="1.5" PointX="6.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CISModel.sysdiagrams" Width="1.5" PointX="8.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CISModel.SystemUser" Width="1.5" PointX="3" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CISModel.Teachers" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CISModel.TypeAspect" Width="1.5" PointX="6.75" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CISModel.Vedomosti" Width="1.5" PointX="8.25" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="CISModel.FK_Aspect_SubCriteria" ManuallyRouted="false" />
+        <AssociationConnector Association="CISModel.FK_Aspect_TypeAspect" ManuallyRouted="false" />
+        <AssociationConnector Association="CISModel.FK_DescriptionOfRefereeingAspects_Aspect" ManuallyRouted="false" />
+        <AssociationConnector Association="CISModel.FK_StudentResult_Aspect" ManuallyRouted="false" />
+        <AssociationConnector Association="CISModel.FK_Criteria_ProModule" ManuallyRouted="false" />
+        <AssociationConnector Association="CISModel.FK_SubCriteria_Criteria" ManuallyRouted="false" />
+        <AssociationConnector Association="CISModel.FK_Exam_Group" ManuallyRouted="false" />
+        <AssociationConnector Association="CISModel.FK_Exam_ProModule" ManuallyRouted="false" />
+        <AssociationConnector Association="CISModel.FK_Exam_Teachers" ManuallyRouted="false" />
+        <AssociationConnector Association="CISModel.FK_Vedomosti_Exam" ManuallyRouted="false" />
+        <AssociationConnector Association="CISModel.FK_Student_Group" ManuallyRouted="false" />
+        <AssociationConnector Association="CISModel.FK_Teachers_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="CISModel.FK_Student_Speciality" ManuallyRouted="false" />
+        <AssociationConnector Association="CISModel.FK_Student_StatusStudent" ManuallyRouted="false" />
+        <AssociationConnector Association="CISModel.FK_Teachers_StatusTeacher1" ManuallyRouted="false" />
+        <AssociationConnector Association="CISModel.FK_StudentResult_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="CISModel.FK_Vedomosti_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="CISModel.FK_SystemUser_Teachers" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

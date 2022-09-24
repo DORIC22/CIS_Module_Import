@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIS_Module_Import", "CIS_Module_Import\CIS_Module_Import.csproj", "{72C71A71-9737-4B03-A63A-B00F62D86025}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{72C71A71-9737-4B03-A63A-B00F62D86025}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72C71A71-9737-4B03-A63A-B00F62D86025}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72C71A71-9737-4B03-A63A-B00F62D86025}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72C71A71-9737-4B03-A63A-B00F62D86025}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ECC97CFF-5963-4B16-AC5E-0527ECDD2F9F}
+	EndGlobalSection
+EndGlobal
