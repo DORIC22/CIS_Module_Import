@@ -71,7 +71,8 @@ namespace CIS_Module_Import
             // Создаем поток для чтения.
 
             
-                FileStream stream = File.Open(fileNames, FileMode.Open, FileAccess.Read);
+                using (FileStream stream = File.Open(fileNames, FileMode.Open, FileAccess.Read))
+            {
                 // В зависимости от расширения файла Excel, создаем тот или иной читатель.
                 // Читатель для файлов с расширением *.xlsx.
                 if (extension == ".xlsx")
@@ -79,6 +80,8 @@ namespace CIS_Module_Import
                 // Читатель для файлов с расширением *.xls.
                 else if (extension == ".xls")
                     edr = ExcelReaderFactory.CreateBinaryReader(stream);
+                else
+                    throw new InvalidOperationException("Неподдерживаемый формат файла.");
 
                 //// reader.IsFirstRowAsColumnNames
                 var conf = new ExcelDataSetConfiguration
@@ -96,7 +99,7 @@ namespace CIS_Module_Import
             // Модуль поиска и импорта Criteria (ниже)
 
             int i = 0;
-            for (; ; i++)
+            for (; i < dt.Rows.Count; i++)
             {
                 if (dt.Rows[i][0].ToString() == "Criteria") // Поиск Criteria
                 {                       
@@ -109,7 +112,7 @@ namespace CIS_Module_Import
             i=i + 2; // Для переброса на 2 строчки ниже
 
             int IdProModule=0;
-            for (; ;  i++)
+            for (; i < dt.Rows.Count;  i++)
             {
                 if (dt.Rows[i][1] != null && dt.Rows[i][1].ToString() != "") /* Двойная проверка на пустые ячейки, 
                                                                               Если ячейка не пустая, производим запись
@@ -166,7 +169,7 @@ namespace CIS_Module_Import
             
             int EndWork2 = 0;
 
-            for (; ;i++ ) // поиск sub criteria (Раздела)
+            for (; i < dt.Rows.Count; i++ ) // поиск sub criteria (Раздела)
             {
                 if (EndWork2 == 1)
                 {
@@ -177,7 +180,7 @@ namespace CIS_Module_Import
                     IdCriteria_Global++;
                     i++; // Чтобы сразу перейти к SubCriteria
 
-                    for (; ;i++ ) // Цикл по поиску Саб критериев
+                    for (; i < dt.Rows.Count; i++ ) // Цикл по поиску Саб критериев
                     {
                         try
                         {
@@ -206,7 +209,7 @@ namespace CIS_Module_Import
                             i++; // Для перехода к баллам
                            // MessageBox.Show(SubCriteriaTitle.ToString());
 
-                            for (; ;i++ ) // Поиск Баллов
+                            for (; i < dt.Rows.Count; i++ ) // Поиск Баллов
                             {
                                 if (dt.Rows[i][10].ToString() != "" && dt.Rows[i][10] != null) // Если ячейка с баллом не пуста, то...
                                 {
@@ -249,7 +252,7 @@ namespace CIS_Module_Import
 
                             // Запись аспекта
 
-                            for (; ; i2++)
+                            for (; i2 < dt.Rows.Count; i2++)
                             {
                                 if (dt.Rows[i2][4] == null || dt.Rows[i2][4].ToString() == "")
                                 {
@@ -315,7 +318,7 @@ namespace CIS_Module_Import
                                         i2++;
                                         int IdAspect = context2.Aspect.First(e => e.Title == TitleAspect).IdAspect;
                                        
-                                        for (; ; i2++ )
+                                        for (; i2 < dt.Rows.Count; i2++ )
                                         {
                                             if (dt.Rows[i2][5] == null || dt.Rows[i2][5].ToString() == "")
                                             {
@@ -363,9 +366,10 @@ namespace CIS_Module_Import
 
                 // MessageBox.Show(dt.Rows[1][0].ToString()); // [x][y] - x Строка, y - столбец
 
-            // После завершения чтения освобождаем ресурсы.
-            edr.Close();
-            return dtView;
+                // После завершения чтения освобождаем ресурсы.
+                edr.Close();
+                return dtView;
+            }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
